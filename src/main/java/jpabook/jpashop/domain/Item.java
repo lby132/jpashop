@@ -6,6 +6,9 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//SINGLE_TABLE 전략에는 자동으로 DTYPE이 생성되어서  @DiscriminatorColumn을 적지 않아도 된다.
+//이유는 JOINED전략은 create Book를 하기 때문에 어디 테이블에 어떤 컬럼인지 알 수 있지만
+//SINGLE_TABLE전략에서는 Book테이블의 author인지 아닌지 알수가 없기 때문에 무조건 DTYPE이 있어야해서 자동으로 넣어준다.
 @DiscriminatorColumn
 public abstract class Item extends BaseEntity {
 
